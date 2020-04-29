@@ -5,11 +5,13 @@ const auth = require("./routes/auth");
 const contacts = require("./routes/contacts");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Connect Database
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+// Init Middlewares
+app.use(express.json({ extended: false }));
 
 // Define Routes
 app.use("/api/users", users);
